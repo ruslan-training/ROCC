@@ -1,3 +1,16 @@
+// HEADER
+window.onscroll = function showHeader() {
+    let header = document.querySelector('.header');
+    if(window.scrollY > 500) {
+      header.classList.add('menu-fixed');
+    } else {
+      header.classList.remove('menu-fixed');
+    }
+  }
+
+
+// Burger
+
 let burger = document.querySelector('.burger'),
     adaptivemenu = document.querySelector('.adaptive-menu'),
     lists = document.querySelectorAll('.list__item'),
@@ -12,25 +25,99 @@ burger.addEventListener('click', function(){
     }
 })
 
-AOS.init({
-    // Global settings:
-    disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-    startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-    initClassName: 'aos-init', // class applied after initialization
-    animatedClassName: 'aos-animate', // class applied on animation
-    useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-    disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-    debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-    throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-    
-  
-    // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-    offset: 100, // offset (in px) from the original trigger point
-    delay: 300, // values from 0 to 3000, with step 50ms
-    duration: 700, // values from 0 to 3000, with step 50ms
-    easing: 'ease', // default easing for AOS animations
-    once: true, // whether animation should happen only once - while scrolling down
-    mirror: false, // whether elements should animate out while scrolling past them
-    anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-  
-  });
+let productBoxes = document.querySelectorAll('.product-box'),
+    productBoxBtns = document.querySelector('.btn'),
+    productBoxIcons = document.querySelector('.product-box__icon');
+
+    for (let productBox of productBoxes) {
+        productBox.addEventListener('mouseenter', function(){
+            productBox.classList.add('_active');
+        })
+        productBox.addEventListener('mouseleave', function(){
+            productBox.classList.remove('_active');
+        }) 
+    }
+
+//  Slider testimonials
+
+$('.testimonials-slider-wrapper').slick({
+    slidesToShow: 2,
+    slidesToScroll: 2,
+    speed: 1500,
+    autoplay: 1,
+    Infinity: true,
+    pauseOnHover: true,
+    waitForAnimate: false,
+
+    responsive: [{
+        breakpoint: 600,
+        settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+    }
+}]
+});
+
+$('.shop__products').slick({
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    speed: 1500,
+    autoplay: 0,
+    Infinity: true,
+    waitForAnimate: true,
+
+    responsive: [   
+    {
+        breakpoint: 900,
+        settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+    },
+        breakpoint: 600,
+        settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+        }
+    }
+]
+
+});
+
+   
+// Scroll Animation
+
+const animItems = document.querySelectorAll(`._animated`)
+if (animItems.length > 0) {
+    window.addEventListener(`scroll`, animOnScroll)
+
+    function animOnScroll() {
+        for (let index = 0; index < animItems.length; index++) {
+            const animItem = animItems[index]
+            const animItemHeight = animItem.offsetHeight
+            const animItemOffSet = offset(animItem).top
+            const animStart = 4
+            let animItemPoint = window.innerHeight - animItemHeight / animStart
+            if (animItemHeight > window.innerHeight) {
+                animItemPoint = window.innerHeight - window.innerHeight / animStart
+            }
+            if ((window.scrollY > animItemOffSet - animItemPoint) && window.scrollY < (animItemOffSet + animItemHeight)) {
+                animItem.classList.add(`_active`)
+            } else {
+                if (!(animItem.classList.contains(`_once-animated`))) {
+                    animItem.classList.remove(`_active`)
+                }
+            }
+        }
+    }
+
+    function offset(el) {
+        const rect = el.getBoundingClientRect()
+        let scrollLeft = window.scrollY || document.documentElement.scrollLeft
+        let scrollTop = window.scrollY || document.documentElement.scrollTop
+        return {top: rect.top + scrollTop, left: rect.left + scrollLeft}
+    }
+
+    setTimeout(() => {
+        animOnScroll()
+    }, 300)
+}
