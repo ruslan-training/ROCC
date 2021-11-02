@@ -107,6 +107,10 @@ body._lock {
 .shop__products .slick-track {
     padding: 10px 0;
 }
+.shop__products .slick-arrow {
+    width: 25px;
+    height: 25px;
+}
 .product-box:last-child {
     margin: 0;
 }
@@ -147,6 +151,9 @@ body._lock {
     border: 1px solid #526E3E;
     border-radius: 3px;
     color: #526E3E;
+}
+.btn-main:hover {
+    background: darken(#EDDBBE, 10%);
 }
 
 // ACTIVE BOX
