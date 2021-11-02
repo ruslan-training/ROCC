@@ -168,7 +168,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  animation: 1s linear  0s forwards show_header;
+  animation: 1.4s ease  0s forwards show_header;
   z-index: 2;
 }
 @keyframes show_header {

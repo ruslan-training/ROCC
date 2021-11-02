@@ -280,8 +280,8 @@ h1, h2, h3, h4, h5, h6 {
   position: fixed;
   top: 0;
   left: 0;
-  -webkit-animation: 1s linear 0s forwards show_header;
-          animation: 1s linear 0s forwards show_header;
+  -webkit-animation: 1.4s ease 0s forwards show_header;
+          animation: 1.4s ease 0s forwards show_header;
   z-index: 2;
 }
 
