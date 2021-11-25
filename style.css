@@ -53,6 +53,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header {
+  display: none;
   background-color: #526e3E;
 }
 
@@ -276,6 +277,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .menu-fixed {
+  display: block;
   width: 100%;
   position: fixed;
   top: 0;
@@ -351,6 +353,7 @@ body._lock {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-attachment: fixed;
 }
 
 .section-wrapper__logo img {

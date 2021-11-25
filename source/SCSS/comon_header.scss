@@ -1,6 +1,7 @@
 
 // TOPMENU
 .header {
+  display: none;
   background-color: #526e3E;
 }
 .logo img {
@@ -164,6 +165,7 @@
 
 // Menu Fixed 
 .menu-fixed {
+  display: block;
   width: 100%;
   position: fixed;
   top: 0;
