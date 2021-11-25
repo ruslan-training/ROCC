@@ -37,7 +37,8 @@ body._lock {
 }
 .section-wrapper__logo {
     max-width: 350px;
-    margin-bottom: 120px;  
+    margin-bottom: 120px; 
+    padding-top: 120px;
 
     transform: translateY(120%);
     opacity: 0;
