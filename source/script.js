@@ -8,6 +8,13 @@ window.onscroll = function showHeader() {
     }
   }
 
+//   PARALLAX
+
+// const sectionParallax = document.querySelector('.section-wrapper');
+// window.addEventListener('scroll', ()=> {
+//     sectionParallax.style.backgroundPositionY = `${scrollY / 2}px`;
+// });
+
 
 // Burger
 
