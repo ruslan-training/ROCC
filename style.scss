@@ -40,7 +40,7 @@ body._lock {
 
     transform: translateY(120%);
     opacity: 0;
-    transition: all .8s ease;
+    transition: all .8s ease .6s;
 
     @include mobile {
         max-width: 200px;
